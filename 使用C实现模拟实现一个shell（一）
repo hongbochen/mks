@@ -192,4 +192,4 @@ gcc main.c coms.c -o main -lreadline
 ![enter description here][1]
 
 
-  [1]: ./images/2016-08-26%2017:10:30%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png "2016-08-26 17:10:30 的屏幕截图.png"
+  [1]: run.png "2016-08-26 17:10:30 的屏幕截图.png"

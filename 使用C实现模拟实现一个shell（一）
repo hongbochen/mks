@@ -1,0 +1,195 @@
+### 项目介绍
+
+一直在想，linux的命令解释器是如何工作的，一直想着自己实现一个命令解释器。后来随着自己的学习以及对linux中终端的使用，对命令解释器有了一个简单的学习和了解。并且对其实现，从一开始的很简单，到后面有一些忌惮。命令解释器，顾名思义，就是对用户输入的命令，进行分析，然后按照用户的想法运行相应的命令，然后再将运行结果成现在用户眼中。
+
+在了解了lex和yacc的相关知识之后，我觉着可以使用lex和yacc更加简单的实现命令解释器，但是后来在开发过程中，我觉着还是一步一步走，从最简单的使用C来解析用户输入的命令以及相关参数，先实现一个简单版本的命令解释器，然后再使用lex和yacc进行优化，使命令解释器能够解析更加复杂的命令，这基本上就是我的思路。
+
+### 命令介绍
+
+在我们现在使用的linux的终端中，也就是在POSIX标准下，命令分为内部命令和外部命令，当命令解释器遇到内部命令的之后，便直接运行内部命令，也就是说，内部命令是我们自己的实现的。而外部命令，当命令解释器遇到外部命令的时候，直接从系统中找到相应的应用程序，然后开启一个子线程来执行该程序。
+
+下面是我们知道的相应的内部命令：
+
+  - exit : 退出该shell程序
+  - cd : 改变当前的工作目录
+  - echo : 回显命令后面的字符串
+  - export : 设置环境变量
+  - history : 显示历史命令
+
+
+### 当前实现一
+
+下面我们来看一下，我现在的实现，后面这个代码会逐步跟进，同时在后面的文章中，将会讲解命令以及参数的相应的POSIX标准，我们的开发也会按照标准来进行。
+
+``` coms.h
+
+#ifndef _COMS_H_
+#define _COMS_H_
+
+/**
+ * The Struct is for storing the splitting command
+ * the user input and the num of the command and its command
+ *
+ * @params coms The command and its args
+ * @params tnum The nums of command and its args
+ * @author hongbochen
+ * @date 2016-08-26
+ *
+ */
+typedef struct com
+{
+  char* coms[50];
+  int tnum;
+} Com;
+
+char* getCom(Com* cm);
+Com* subCom(char *com);
+void dealCom(Com* cm);
+
+#endif
+
+```
+
+这里的`coms.h`用来命令数组，来保存相应的命令以及其参数，同时将该数组的个数也保存到该结构体中。同时定义了几个函数，分别是分割命令函数，处理命令函数，获取命令函数。这里的获取命令函数的意思是：将用户输入的命令和函数进行分割，然后保存到coms数组中，获取命令函数的作用就是获取数组中的第一个元素，即为用户的命令，因为其他的元素都是相应的命令参数。
+
+下面我们来看一下这些函数的实现：
+
+``` coms.c
+
+#include "coms.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+char* getCom(Com* cm)
+{
+  if(cm->tnum < 1){
+    return NULL;
+  }else{
+    return cm->coms[0];
+  }
+}
+
+/**
+ * 解析用户输入的命令
+ * @param com 用户输入的命令字符串
+ * @author hongbochen
+ * @date 2016-08-24
+ * @note In this version, We just split the string using blank
+ enter code here*/
+Com* subCom(char *com){
+  //char* comss[50];
+
+  char *token = strtok(com, " ");
+
+  int nums = 0;
+
+  // 分配空间
+  Com* bc = (Com *)malloc(sizeof(Com));
+
+  while(token != NULL)
+  {
+    bc->coms[nums] = (char *)malloc(sizeof(char) * 20);
+    strcpy(bc->coms[nums], token);
+
+    // go to the next token
+    token = strtok(NULL, " ");
+
+    nums++;
+  }
+
+  bc->tnum = nums;
+
+  //return comss;
+  return bc;
+}
+
+/*
+ * 处理被解析出来的命令
+ * @param cm 解析出来的命令结构
+ * @author hongbochen
+ * @date 2016-08-26
+ */
+void dealCom(Com* cm){
+
+  char* fm;
+  if((fm = getCom(cm)) != NULL){
+    printf("%s\n", fm);
+  }
+
+}
+
+```
+
+这里的实现比较简单，也有相应的注释，处理命令函数还没有完全实现，下一篇文章将会实现。
+
+下面我们看一下比较重要的main函数：
+
+``` main.c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <readline/readline.h>
+#include <readline/history.h>
+#include <string.h>
+
+#include "coms.h"
+
+/* Use this to judge whether the program is running or not */
+int isRun = 1;
+
+/*
+ * @author hongbochen
+ * @date 2016-08-24
+ * @des This is a simple shell.
+ *
+ */
+int main(int argc,char *argv[])
+{
+    /* The prompt of start */
+    char prompt[200];
+    /* The command the user input */
+    char* line;
+
+    // The variable of this prog
+    int i = 0;
+
+    /* Run the app in loop */
+    while(isRun){
+      getcwd(prompt,sizeof(prompt));
+      strcat(prompt,"$ ");
+
+      if(!(line = readline(prompt)))
+        break;
+
+      /*
+      if(strcmp(line, "exit") == 0){
+        isRun = 0;
+      }else if(strcmp(line, "echo") == 0){
+        printf("%s\n", line);
+      }
+      */
+
+      // get the split command the user input
+      Com* cms = subCom(line);
+      dealCom(cms);
+    }
+}
+
+```
+
+在这里这个函数不在赘述，但是有一个事情数需要说明的是，由于我们使用了readline库，所以在编译之前需要安装readline库，同时在编译的时候，编译指令需要指定readline库。
+
+``` 编译指令
+
+gcc main.c coms.c -o main -lreadline
+
+```
+
+下面我们使用`./main`来运行一下该程序：
+
+![enter description here][1]
+
+
+  [1]: ./images/2016-08-26%2017:10:30%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png "2016-08-26 17:10:30 的屏幕截图.png"

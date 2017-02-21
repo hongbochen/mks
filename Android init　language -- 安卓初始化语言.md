@@ -313,8 +313,6 @@ $TIMEOUT的值对应着期望bootchart持续的秒数。当这些时间过后，
 
 ### Debugging init
 
-
-
 <hr / >
 
 默认的，由init执行的程序将会把标准输出和标准错误丢入到/dev/null。为了帮助调试，

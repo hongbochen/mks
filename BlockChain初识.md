@@ -239,6 +239,20 @@ docker-sompose up
 
 `a`的新余额为90。
 
+```
+	root@peer0:/go/src/github.com/hyperledger/fabric# peer chaincode query  -n test_cc  -c '{"Args":["query","a"]}'
+	Query Result: 90
+	[main] main -> INFO 001 Exiting.....
 
+```
+
+`b`的新余额为210。
+
+```
+	root@peer0:/go/src/github.com/hyperledger/fabric# peer chaincode query  -n test_cc  -c '{"Args":["query","b"]}'
+	Query Result: 210
+	[main] main -> INFO 001 Exiting.....
+
+```
 
 

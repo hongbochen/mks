@@ -59,3 +59,9 @@ grammar_cjkRuby: true
 
 #### 安装Docker
 
+首先，安装Docker。
+
+```
+curl -fsSL https://get.docker.com/ | sh
+```
+

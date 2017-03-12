@@ -136,6 +136,8 @@ docker-sompose up
 
 #### 测试chainnode操作
 
+启动fabric网络后，可以进行chainnode操作，验证网络启动正常。
+
 
 
 

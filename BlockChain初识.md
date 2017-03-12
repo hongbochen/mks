@@ -149,5 +149,17 @@ docker-sompose up
 
 在容器中执行部署命令install和instantiate，注意输出日志无错误提示，最终返回的结果应该为`response:<status:200 message:"OK" payload:"100" >`。
 
+其中，peer默认加入到了名为testchainid的channel中，并在此channel中执行instantiate/invoke/query命令，详细的解释壳通过`peer --help`查看。
+
+```
+	root@peer0:/go/src/github.com/hyperledger/fabric# peer chaincode install -n test_cc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}' -v v0
+	...
+	[container] WriteGopathSrc -> INFO 001 rootDirectory = /go/src
+	[container] WriteFolderToTarPackage -> INFO 002 rootDirectory = /go/src
+	Installed remotely response:<status:200 payload:"OK" > 
+	[main] main -> INFO 003 Exiting.....
+
+```
+
 
 

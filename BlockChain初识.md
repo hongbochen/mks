@@ -225,4 +225,6 @@ docker-sompose up
 
 对部署成功的chaincode执行调用操作，如`a`向`b`转账10元。
 
+对peer0容器中执行如下操作，注意最终结果状态正常`response:<status:200 message:"OK" >`。
+
 

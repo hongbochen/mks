@@ -163,5 +163,16 @@ docker-sompose up
 
 之后执行`peer chaincode instantiate`命令。
 
+```
+	root@peer0:/go/src/github.com/hyperledger/fabric# peer chaincode instantiate -n test_cc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}' -v v0
+	...
+	[chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
+	[chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
+	[main] main -> INFO 003 Exiting.....
+
+```
+
+此时，系统中生成类型`dev-peer0-test_cc-v0`的chaincode Docker镜像，和相同名称的容器
+
 
 

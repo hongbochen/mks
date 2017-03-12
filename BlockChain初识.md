@@ -223,4 +223,6 @@ docker-sompose up
 
 *调用chaincode*
 
+对部署成功的chaincode执行调用操作，如`a`向`b`装张10源。
+
 

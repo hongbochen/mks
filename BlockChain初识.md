@@ -12,4 +12,4 @@ grammar_cjkRuby: true
 ### 基本原理
 
 
-
+区块链的基本概念有：

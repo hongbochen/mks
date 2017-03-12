@@ -65,3 +65,9 @@ grammar_cjkRuby: true
 curl -fsSL https://get.docker.com/ | sh
 ```
 
+重启docker服务：
+
+```
+sudo service docker restart
+```
+

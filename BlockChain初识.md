@@ -13,3 +13,4 @@ grammar_cjkRuby: true
 
 
 区块链的基本概念有：
+ - 交易(Transaction)：也就是一次操作，使得账本状态发生一次改变，例如添加一条记录。

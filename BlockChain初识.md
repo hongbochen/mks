@@ -207,4 +207,20 @@ docker-sompose up
 
 类似的，查询`b`的余额，注意最终返回结果为`Query Result: 200`。
 
+```
+	root@peer0:/go/src/github.com/hyperledger/fabric# peer chaincode query  -n test_cc  -c '{"Args":["query","b"]}'
+	Query Result: 200
+	[main] main -> INFO 001 Exiting.....
+```
+
+或者为
+
+```
+	root@peer0:/go/src/github.com/hyperledger/fabric# peer chaincode invoke -n test_cc -c '{"Args":["query","b"]}'
+	[chaincodeCmd] chaincodeInvokeOrQuery -> INFO 001 Invoke result: version:1 response:<status:200 message:"OK" payload:"200" > payload:"\n \366\340\355\3350\202\326\213\367p\222\364r\326\212\177\240\214\204\254\364\232\312\227\242(Z9\010a\342\241\0224\n(\002\004lccc\001\007test_cc\004\001\001\001\001\000\000\007test_cc\001\001b\004\001\001\001\001\000\000\032\010\010\310\001\032\003200" endorsement:<endorser:"\n\007DEFAULT\022\232\007-----BEGIN -----\nMIICjDCCAjKgAwIBAgIUBEVwsSx0TmqdbzNwleNBBzoIT0wwCgYIKoZIzj0EAwIw\nfzELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNh\nbiBGcmFuY2lzY28xHzAdBgNVBAoTFkludGVybmV0IFdpZGdldHMsIEluYy4xDDAK\nBgNVBAsTA1dXVzEUMBIGA1UEAxMLZXhhbXBsZS5jb20wHhcNMTYxMTExMTcwNzAw\nWhcNMTcxMTExMTcwNzAwWjBjMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGgg\nQ2Fyb2xpbmExEDAOBgNVBAcTB1JhbGVpZ2gxGzAZBgNVBAoTEkh5cGVybGVkZ2Vy\nIEZhYnJpYzEMMAoGA1UECxMDQ09QMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE\nHBuKsAO43hs4JGpFfiGMkB/xsILTsOvmN2WmwpsPHZNL6w8HWe3xCPQtdG/XJJvZ\n+C756KEsUBM3yw5PTfku8qOBpzCBpDAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYw\nFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFOFC\ndcUZ4es3ltiCgAVDoyLfVpPIMB8GA1UdIwQYMBaAFBdnQj2qnoI/xMUdn1vDmdG1\nnEgQMCUGA1UdEQQeMByCCm15aG9zdC5jb22CDnd3dy5teWhvc3QuY29tMAoGCCqG\nSM49BAMCA0gAMEUCIDf9Hbl4xn3z4EwNKmilM9lX2Fq4jWpAaRVB97OmVEeyAiEA\n25aDPQHGGq2AvhKT0wvt08cX1GTGCIbfmuLpMwKQj38=\n-----END -----\n" signature:"0E\002!\000\335\t\234\347\367&\316-G~J\336u\tn\035\030U\314\021\227Z\241U\307+\\^>\230\216k\002 qk;\276\007\312'\376\022\267\342h\2620>\317\353\232\\\223\334U\372xu\2275\274\327\345fH" >
+	[main] main -> INFO 002 Exiting.....
+```
+
+
+
 

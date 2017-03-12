@@ -147,5 +147,7 @@ docker-sompose up
 
 ```
 
+在容器中执行部署命令install和instantiate，注意输出日志无错误提示，最终返回的结果应该为`response:<status:200 message:"OK" payload:"100" >`。
+
 
 

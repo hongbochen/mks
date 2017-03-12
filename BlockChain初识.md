@@ -172,7 +172,12 @@ docker-sompose up
 
 ```
 
-此时，系统中生成类型`dev-peer0-test_cc-v0`的chaincode Docker镜像，和相同名称的容器
+此时，系统中生成类型`dev-peer0-test_cc-v0`的chaincode Docker镜像，和相同名称的容器。
+
+```
+
+
+```
 
 
 

@@ -142,5 +142,10 @@ docker-sompose up
 
 通过日下命令进入容器peer0。
 
+```
+	docker exec -it fabric-peer0 bash
+
+```
+
 
 

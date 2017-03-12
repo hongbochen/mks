@@ -114,5 +114,13 @@ grammar_cjkRuby: true
  - `peers.yml`：包含peer节点的服务模板。
  - `docker-compose.yml`：启动1个最小化环境，包括1个peer节点，一个Orderer节点，1个CA节点。
 
+通过下面命令快速启动：
+
+```
+docker-sompose up
+```
+
+注意输出日志中无错误信息。
+
 
 

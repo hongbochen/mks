@@ -138,6 +138,8 @@ docker-sompose up
 
 启动fabric网络后，可以进行chainnode操作，验证网络启动正常。
 
+*部署chainnode*
+
 
 
 

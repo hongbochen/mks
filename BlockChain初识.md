@@ -112,6 +112,7 @@ grammar_cjkRuby: true
 进入`hyperledger/1.0`目录，查看相关文件，其功能为：
 
  - `peers.yml`：包含peer节点的服务模板。
+ - `docker-compose.yml`：启动1个最小化环境，包括1个peer节点，一个Orderer节点，1个CA节点。
 
 
 

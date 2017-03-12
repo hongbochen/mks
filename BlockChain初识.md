@@ -175,9 +175,20 @@ docker-sompose up
 此时，系统中生成类型`dev-peer0-test_cc-v0`的chaincode Docker镜像，和相同名称的容器。
 
 ```
-
+	$ docker ps
+	CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                             NAMES
+	edc9740c265c        dev-peer0-test_cc-v0        "/opt/gopath/bin/t..."   34 minutes ago      Up 34 minutes                                                         dev-peer0-test_cc-1.0
+	2367ccb6463d        hyperledger/fabric-peer      "peer node start"        36 minutes ago      Up 36 minutes       7050/tcp, 7052-7059/tcp, 0.0.0.0:7051->7051/tcp   fabric-peer0
+	02eaf86496ca        hyperledger/fabric-orderer   "orderer"                36 minutes ago      Up 36 minutes       0.0.0.0:7050->7050/tcp                            fabric-orderer
+	71c2246e1165        hyperledger/fabric-ca        "fabric-ca server ..."   36 minutes ago      Up 36 minutes       7054/tcp, 0.0.0.0:8888->8888/tcp 
 
 ```
+
+*查询chaincode*
+
+对部署成功的chaincode执行查询操作，查询`a`的余额。
+
+同样，在peer0容器中执行如下命令，注意输出无错误信息，最后的结果为`Query Result:100`。
 
 
 

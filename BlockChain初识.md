@@ -62,44 +62,48 @@ grammar_cjkRuby: true
 首先，安装Docker。
 
 ```
-curl -fsSL https://get.docker.com/ | sh
+	curl -fsSL https://get.docker.com/ | sh
 ```
 
 重启docker服务：
 
 ```
-sudo service docker restart
+	sudo service docker restart
 ```
 
 接着，安装docker-compose
 
 ```
-sudo aptitude install python-pip
+	sudo aptitude install python-pip
 
-sudo pip install docker-sompose>=1.7.0
+	sudo pip install docker-sompose>=1.7.0
 
 ```
 
 下载镜像，目前我们使用最新的1.0版本进行学习。
 
 ```
-$ ARCH=x86_64
-$ BASE_VERSION=1.0.0-preview
-$ PROJECT_VERSION=1.0.0-preview
-$ IMG_VERSION=0.8.4
-$ docker pull yeasy/hyperledger-fabric-base:$IMG_VERSION \
-  && docker pull yeasy/hyperledger-fabric-peer:$IMG_VERSION \
-  && docker pull yeasy/hyperledger-fabric-orderer:$IMG_VERSION \
-  && docker pull yeasy/hyperledger-fabric-ca:$IMG_VERSION \
-  && docker pull yeasy/blockchain-explorer:latest \
-  && docker tag yeasy/hyperledger-fabric-peer:$IMG_VERSION hyperledger/fabric-peer \
-  && docker tag yeasy/hyperledger-fabric-orderer:$IMG_VERSION hyperledger/fabric-orderer \
-  && docker tag yeasy/hyperledger-fabric-ca:$IMG_VERSION hyperledger/fabric-ca \
-  && docker tag yeasy/hyperledger-fabric-base:$IMG_VERSION hyperledger/fabric-baseimage \
-  && docker tag yeasy/hyperledger-fabric-base:$IMG_VERSION hyperledger/fabric-ccenv:$ARCH-$BASE_VERSION \
-  && docker tag yeasy/hyperledger-fabric-base:$IMG_VERSION hyperledger/fabric-baseos:$ARCH-$BASE_VERSION
+	$ ARCH=x86_64
+	$ BASE_VERSION=1.0.0-preview
+	$ PROJECT_VERSION=1.0.0-preview
+	$ IMG_VERSION=0.8.4
+	$ docker pull yeasy/hyperledger-fabric-base:$IMG_VERSION \
+	  && docker pull yeasy/hyperledger-fabric-peer:$IMG_VERSION \
+	  && docker pull yeasy/hyperledger-fabric-orderer:$IMG_VERSION \
+	  && docker pull yeasy/hyperledger-fabric-ca:$IMG_VERSION \
+	  && docker pull yeasy/blockchain-explorer:latest \
+	  && docker tag yeasy/hyperledger-fabric-peer:$IMG_VERSION hyperledger/fabric-peer \
+	  && docker tag yeasy/hyperledger-fabric-orderer:$IMG_VERSION hyperledger/fabric-orderer \
+	  && docker tag yeasy/hyperledger-fabric-ca:$IMG_VERSION hyperledger/fabric-ca \
+	  && docker tag yeasy/hyperledger-fabric-base:$IMG_VERSION hyperledger/fabric-baseimage \
+	  && docker tag yeasy/hyperledger-fabric-base:$IMG_VERSION hyperledger/fabric-ccenv:$ARCH-$BASE_VERSION \
+	  && docker tag yeasy/hyperledger-fabric-base:$IMG_VERSION hyperledger/fabric-baseos:$ARCH-$BASE_VERSION
 
 ```
+
+接着启动fabric 1.0网络。
+
+下载Compose模板文件、
 
 
 

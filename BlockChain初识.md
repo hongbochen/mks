@@ -103,7 +103,15 @@ grammar_cjkRuby: true
 
 接着启动fabric 1.0网络。
 
-下载Compose模板文件、
+下载Compose模板文件。
+
+```
+	git clone https://github.com/yeasy/docker-compose-files
+```
+
+进入`hyperledger/1.0`目录，查看相关文件，其功能为：
+
+ - `peers.yml`：包含peer节点的服务模板。
 
 
 

@@ -34,3 +34,5 @@ grammar_cjkRuby: true
   ### 分类
   
   根据参与者不同，区块链可以分为公开(Public)链，联盟(Consortium)链和私有(Private)链。
+  
+  公共链，顾名思义，任何人都可以参与使用和维护，典型的如比特币区块链，

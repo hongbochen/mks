@@ -190,5 +190,13 @@ docker-sompose up
 
 同样，在peer0容器中执行如下命令，注意输出无错误信息，最后的结果为`Query Result:100`。
 
+```
+	root@peer0:/go/src/github.com/hyperledger/fabric# peer chaincode query  -n test_cc  -c '{"Args":["query","a"]}'
+	Query Result: 100
+	2017-02-20 07:12:10.020 UTC [main] main -> INFO 001 Exiting.....
+```
+
+或者是也可以使用下列方式查询，最后的结果为`<status:200 message:"OK" payload:"100" >`。
+
 
 

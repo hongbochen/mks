@@ -140,6 +140,7 @@ docker-sompose up
 
 *部署chainnode*
 
+通过日下命令进入容器peer0。
 
 
 

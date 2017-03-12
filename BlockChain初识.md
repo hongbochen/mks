@@ -134,11 +134,11 @@ docker-sompose up
 
 ```
 
-#### 测试chainnode操作
+#### 测试chaincode操作
 
-启动fabric网络后，可以进行chainnode操作，验证网络启动正常。
+启动fabric网络后，可以进行chaincode操作，验证网络启动正常。
 
-*部署chainnode*
+*部署chaincode*
 
 通过日下命令进入容器peer0。
 
@@ -160,6 +160,8 @@ docker-sompose up
 	[main] main -> INFO 003 Exiting.....
 
 ```
+
+之后执行`peer chaincode instantiate`命令。
 
 
 

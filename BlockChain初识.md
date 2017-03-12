@@ -122,5 +122,20 @@ docker-sompose up
 
 注意输出日志中无错误信息。
 
+此时，系统中包括三个容器：
+
+```
+
+	$ docker ps
+	CONTAINER ID        IMAGE                                                                                                                                                  COMMAND                  CREATED             STATUS              PORTS                                             NAMES
+	2367ccb6463d        hyperledger/fabric-peer          "peer node start"        15 minutes ago      Up 15 minutes       7050/tcp, 7052-7059/tcp, 0.0.0.0:7051->7051/tcp   fabric-peer0
+	02eaf86496ca        hyperledger/fabric-orderer       "orderer"                15 minutes ago      Up 15 minutes       0.0.0.0:7050->7050/tcp                            fabric-orderer
+	71c2246e1165        hyperledger/fabric-ca            "fabric-ca server sta"   15 minutes ago      Up 15 minutes       7054/tcp, 0.0.0.0:8888->8888/tcp                  fabric-ca
+
+```
+
+#### 测试chainnode操作
+
+
 
 

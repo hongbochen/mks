@@ -71,3 +71,16 @@ curl -fsSL https://get.docker.com/ | sh
 sudo service docker restart
 ```
 
+接着，安装docker-compose
+
+```
+sudo aptitude install python-pip
+
+sudo pip install docker-sompose>=1.7.0
+
+```
+
+下载镜像，目前我们使用最新的0.85版本
+
+
+

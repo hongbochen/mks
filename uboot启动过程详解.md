@@ -95,3 +95,4 @@ grammar_cjkRuby: true
 
 ```
 
+首先该函数做的是初始化board，调用`board_init()`函数。

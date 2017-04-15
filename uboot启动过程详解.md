@@ -95,4 +95,5 @@ grammar_cjkRuby: true
 
 ```
 
-首先该函数做的是初始化board，调用`board_init()`函数。
+首先该函数做的是初始化board，调用`board_init()`函数。该函数位于`board/****/***.c`文件中，该文件由于属于板子厂家，所以暂时保密。我们来看一下这个函数：
+

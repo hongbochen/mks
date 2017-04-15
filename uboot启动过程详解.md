@@ -281,5 +281,42 @@ grammar_cjkRuby: true
 
 我们来看一下如何获取内核镜像数据或者是ramdisk镜像数据，也就是`getverifyimage()`函数。
 
+```
 
+	void getverifyimage(int whichimage)
+	{
+			int i;
+			unsigned int *cfgInfor = image_data_all;
+			int ret;
 
+			if(whichimage == VERIFY_KERNEL) {
+					image_data_all = CONFIG_KERNEL_LOADADDR - HEADINFOLEN;
+			} else if(whichimage == VERIFY_RAMDISK) {
+					image_data_all = CONFIG_RAMDISK_LOADADDR - HEADINFOLEN;
+			}
+			cfgInfor = (unsigned int *)image_data_all;
+			ORIGIN_IMAGE_LEN =  cfgInfor[0];
+
+			for(i=0; i<(256/4); i++)
+			{
+					RSASIGNATURE[i] = cfgInfor[i + (RSASIGNEDLEN / 4)];
+			}
+
+			for(i=0; i<(524/4); i++)
+			{
+					RSAPUBKEYSTRU[i] = cfgInfor[i + (RSAPUBKEYLEN / 4)];
+		}
+
+			ORIGIN_IMAGE_BASEADDR = &image_data_all[HEADINFOLEN];
+
+	#if defined(CONFIG_ENABLE_SECURE_VERIFY_DEBUG)
+			printf("image len:0x%x(%d)\n", ORIGIN_IMAGE_LEN, ORIGIN_IMAGE_LEN);
+
+			dumphex("rsa pub key", RSAPUBKEYSTRU, 524/4);
+			dumpint("rsa pub key", RSAPUBKEYSTRU, 524/4);
+	#endif
+	}
+
+```
+
+我们以内核启动验证为例进行讲解，ramdisk是一样的。

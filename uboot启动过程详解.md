@@ -372,4 +372,10 @@ grammar_cjkRuby: true
   
   ```
   
+  通过这个函数可以看到，对内核进行了两次验证，一次是通过函数`rsaPubKey_sha256_verify()`进行验证，另外一个是通过`RSA_verify`进行验证，我们先来看第一个：
   
+  ```
+  
+  
+  
+  ```

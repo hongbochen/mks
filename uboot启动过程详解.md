@@ -376,6 +376,67 @@ grammar_cjkRuby: true
   
   ```
   
-  
+	  /****************************************************
+					Use SHA256 to generate digest of RSA pub-key, 
+					which is 524 BYTES. Then compare the digest 
+					with the original digest which is store in the
+					EFUSE. If the new digest equals original digest,
+					it means RSA pub-key is right. Otherwise, means
+					the RSA pub-key is wrong. 
+	*****************************************************/
+	int rsaPubKey_sha256_verify(void)
+	{
+			unsigned int *digest, origDigest[8], i, result;
+			unsigned char *newDigest;
+			SHA256_CTX ctx;
+			digest = (unsigned int *)SHA256_hash(RSAPUBKEYSTRU, 524, newDigest, &ctx);
+	#if 1
+			origDigest[0] = *RSA_SIGNATURE0;
+			origDigest[1] = *RSA_SIGNATURE1;
+			origDigest[2] = *RSA_SIGNATURE2;
+			origDigest[3] = *RSA_SIGNATURE3;
+			origDigest[4] = *RSA_SIGNATURE4;
+			origDigest[5] = *RSA_SIGNATURE5;
+			origDigest[6] = *RSA_SIGNATURE6;
+			origDigest[7] = *RSA_SIGNATURE7;
+	#else
+			origDigest[0] = rsahash[0];
+			origDigest[1] = rsahash[1];
+			origDigest[2] = rsahash[2];
+			origDigest[3] = rsahash[3];
+			origDigest[4] = rsahash[4];
+			origDigest[5] = rsahash[5];
+			origDigest[6] = rsahash[6];
+			origDigest[7] = rsahash[7];
+	#endif
+	#if defined(CONFIG_ENABLE_SECURE_VERIFY_DEBUG)
+			dumphex("pubkey hash", digest, 32);
+			dumphex("read pubkey hash", origDigest, 32);
+	#endif
+			//new key and old key xor
+	#if defined(CONFIG_ENABLE_SECURE_VERIFY_DEBUG)
+			printf("read pubkey hash:\n");
+	#endif
+			for(i=0; i<8; i++)
+			{
+	#if defined(CONFIG_ENABLE_SECURE_VERIFY_DEBUG)
+				printf("%08x ", origDigest[i]);
+	#endif
+				result = ((origDigest[i]) ^ (digest[i]));
+				if(result != 0) {
+	#if defined(CONFIG_ENABLE_SECURE_VERIFY_DEBUG)
+					printf("ERROR! %s %d\n", __func__,__LINE__);
+	#endif
+					return 1;
+				}
+			}
+
+	#if defined(CONFIG_ENABLE_SECURE_VERIFY_DEBUG)
+					dumphex("pubkey hash", digest, 32);
+	#endif
+					return 0;
+
   
   ```
+  
+  这里是对公钥进行sha256签名来验证公钥是否是对的，具体的函数实现不再学习。

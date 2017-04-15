@@ -253,3 +253,26 @@ grammar_cjkRuby: true
 那么uboot又是如何验证内核镜像和ramdisk镜像的呢？我们接着看。
 
 我们先来看函数`secure_verify()`函数。
+
+```
+
+int secure_verify(void)
+{
+        getverifyimage(VERIFY_KERNEL);
+        if (image_rsa_verify()) {
+                printf("kernel verify failed!\n");
+                return 1;
+        } else {
+                printf("kernel verify ok!\n");
+                getverifyimage(VERIFY_RAMDISK);
+                if(image_rsa_verify()) {
+                        printf("ramdisk verify failed!\n");
+                        return 1;
+                } else {
+                        printf("ramdisk verify ok!\n");
+                }
+        }
+        return 0;
+}
+
+```

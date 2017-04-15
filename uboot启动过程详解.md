@@ -144,3 +144,90 @@ grammar_cjkRuby: true
 ```
 
 在该函数中，主要是用于初始化一些参数和硬件，包括arch版本号，boot加载地址，初始化watchdog，系统时钟，总线，flash，同时还需要做的就是，我们开机时的按钮监听，组合键按钮监听，启动镜像，开机震动等操作，在这里我们看一下`boot_image()`函数的实现。
+
+```
+
+	static void boot_image(void)
+	{
+		char *kernel_name = CONFIG_PARTITION_KERNEL;
+		char *ramdisk_name = CONFIG_PARTITION_RAMDISK;
+		int pu_reason;
+		int key_code;
+		int ret;
+
+		pu_reason = pmic_power_up_reason_get();
+		if ((pu_reason == PU_REASON_REBOOT_RECOVERY)
+				|| (pu_reason == PU_REASON_REBOOT_FOTA)
+				|| check_recovery_misc() || check_recovery_fota()) {
+			gd->boot_mode = BOOT_MODE_RECOVERY;
+			ramdisk_name = CONFIG_PARTITION_RAMDISK_RECOVERY;
+	#if defined(CONFIG_USE_KERNEL_RECOVERY)
+			kernel_name = CONFIG_PARTITION_KERNEL_RECOVERY;
+	#endif
+		} else {
+			ret = keypad_init();
+			if (ret)
+				printf("keypad init failed!\n");
+
+			key_code = keypad_check();
+			printf("key code: %d\n", key_code);
+
+			 if(pu_reason == PU_REASON_USB_CHARGER
+				#if defined(CONFIG_COMIP_FASTBOOT)
+					&& key_code != CONFIG_KEY_CODE_FASTBOOT
+				#endif
+			) {
+				gd->boot_mode = BOOT_MODE_NORMAL;
+				ramdisk_name = CONFIG_PARTITION_RAMDISK_AMT1;
+			} else {
+				switch (key_code) {
+				case KEY_CODE_RECOVERY:
+					gd->boot_mode = BOOT_MODE_RECOVERY;
+					ramdisk_name = CONFIG_PARTITION_RAMDISK_RECOVERY;
+					#if defined(CONFIG_USE_KERNEL_RECOVERY)
+					kernel_name = CONFIG_PARTITION_KERNEL_RECOVERY;
+					#endif
+					break;
+				#if defined(CONFIG_USE_RAMDISK_AMT3)
+				case KEY_CODE_AMT3:
+					gd->boot_mode = BOOT_MODE_AMT3;
+					ramdisk_name = CONFIG_PARTITION_RAMDISK_AMT3;
+					break;
+				#endif
+				default:
+					gd->boot_mode = BOOT_MODE_NORMAL;
+					ramdisk_name = CONFIG_PARTITION_RAMDISK;
+					break;
+				}
+
+				#if defined(CONFIG_COMIP_FASTBOOT)
+				if (key_code == CONFIG_KEY_CODE_FASTBOOT) {
+					printf("goto fastmode!\n");
+					gd->fastboot = 1;
+				}
+				#endif
+			}
+		}
+
+		printf("kernel name: %s, ramdisk name: %s\n", kernel_name, ramdisk_name);
+
+		flash_partition_read(kernel_name, (u8*)(CONFIG_KERNEL_LOADADDR - IMAGE_ADDR_OFFSET), 0xffffffff);
+
+		flash_partition_read(ramdisk_name, (u8*)(CONFIG_RAMDISK_LOADADDR - IMAGE_ADDR_OFFSET), 0xffffffff);
+
+	#if defined(CONFIG_COMIP_FASTBOOT) && defined(CONFIG_LCD_SUPPORT)
+		if (unlikely(gd->fastboot))
+			flash_partition_read(CONFIG_PARTITION_FASTBOOT_LOGO, (u8*)(unsigned int)gd->fb_base, CONFIG_FB_MEMORY_SIZE);
+		else
+			flash_partition_read(CONFIG_PARTITION_LOGO, (u8*)(unsigned int)gd->fb_base, CONFIG_FB_MEMORY_SIZE);
+	#else
+		flash_partition_read(CONFIG_PARTITION_LOGO, (u8*)(unsigned int)gd->fb_base, CONFIG_FB_MEMORY_SIZE);
+	#endif
+
+		printf("boot image end\n");
+	}
+	#endif /* !CONFIG_COMIP_TARGETLOADER */
+
+```
+
+在这里首先需要确定内核镜像和ramdisk镜像的地址，然后初始化按钮监听，根据不同的按钮组合按键启动不同的镜像，包括正常启动，也就是说启动内核，启动android；启动recovery镜像；启动工厂模式等。

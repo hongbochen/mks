@@ -281,5 +281,5 @@ grammar_cjkRuby: true
 
 我们来看一下如何获取内核镜像数据或者是ramdisk镜像数据，也就是`getverifyimage()`函数。
 
-这里的`VERIFY_KERNEL`或者是`VERIFY_RAMDISK`分别是:
+
 

@@ -249,3 +249,6 @@ grammar_cjkRuby: true
 ```
 
 在这里，我们刚刚说了，已经把相应的内核镜像数据和ramdisk镜像数据读入到flash中了。
+
+那么uboot又是如何验证内核镜像和ramdisk镜像的呢？我们接着看。
+

@@ -97,3 +97,50 @@ grammar_cjkRuby: true
 
 首先该函数做的是初始化board，调用`board_init()`函数。该函数位于`board/****/***.c`文件中，该文件由于属于板子厂家，所以暂时保密。我们来看一下这个函数：
 
+```
+
+	int board_init(void)
+	{
+		gd->bd->bi_arch_number = MACH_TYPE_LC186X;
+		gd->bd->bi_boot_params = CONFIG_BOOT_PARAMS_LOADADDR;
+
+	#ifndef CONFIG_COMIP_TARGETLOADER
+		tl420_init();
+
+		watchdog_init();
+
+		comip_lc186x_coresight_config();
+
+		comip_lc186x_sysclk_config();
+
+		comip_lc186x_sec_config();
+
+		comip_lc186x_bus_prior_config();
+	#endif
+
+	#if defined(COMIP_LOW_POWER_MODE_ENABLE)
+		comip_lp_regs_init();
+	#endif
+		icache_enable();
+		//dcache_enable();
+	#if CONFIG_COMIP_EMMC_ENHANCE
+		mmc_set_dma(1);
+	#endif
+		flash_init();
+
+	#ifndef CONFIG_COMIP_TARGETLOADER
+		pmic_power_on_key_check();
+		boot_image();
+		pmic_power_on_key_check();
+	#endif
+
+	#ifdef CONFIG_PMIC_VIBRATOR
+		pmic_vibrator_enable_set();
+	#endif
+
+		return 0;
+	}
+
+```
+
+在该函数中，主要是用于初始化一些参数和硬件，包括arch版本号，boot加载地址，初始化watchdog，系统时钟，总线，flash，同时还需要做的就是，我们开机时的按钮监听，组合键按钮监听，启动镜像等操作。

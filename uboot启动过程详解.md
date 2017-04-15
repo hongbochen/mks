@@ -247,3 +247,5 @@ grammar_cjkRuby: true
 	#endif
 
 ```
+
+在这里，我们刚刚说了，已经把相应的内核镜像数据和ramdisk镜像数据读入到flash中了。

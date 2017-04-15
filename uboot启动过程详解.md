@@ -443,4 +443,36 @@ grammar_cjkRuby: true
   
   接着通过对内核镜像数据进行sha256获取哈希，然后，使用公钥和签名进行签名验证，验证内核镜像数据是否是正确的。这样，通过这两步，必须两步都对，才能进行内核的正常加载和运行。
   
-  ramdisk镜像的签名验证也是如何，对内核镜像和ramdisk镜像签名验证之后，
+  ramdisk镜像的签名验证也是如何，对内核镜像和ramdisk镜像签名验证之后，接着执行下面的操作，也就是执行`do_bootm_linux()`函数，该函数的实现如下：
+  
+  ```
+  
+	  void do_bootm_linux(void)
+	{
+		bd_t *bd = gd->bd;
+		void (*theKernel) (int zero, int arch, uint params);
+		theKernel = (void (*)(int, int, uint))CONFIG_KERNEL_LOADADDR;
+
+		params = (struct tag *)bd->bi_boot_params;
+
+		params->hdr.tag = ATAG_CORE;
+		params->hdr.size = tag_size(tag_core);
+		params->u.core.flags = 0;
+		params->u.core.pagesize = 0;
+		params->u.core.rootdev = 0;
+		params = tag_next(params);
+
+		params = comip_set_boot_params(params);
+
+		params->hdr.tag = ATAG_NONE;
+		params->hdr.size = 0;
+
+		/* we assume that the kernel is in place */
+		printf("\nStarting kernel ...\n");
+		cleanup_before_linux();
+		theKernel(0, bd->bi_arch_number, bd->bi_boot_params);
+	}
+  
+  ```
+  
+  在这里实际上就是通过一个`theKernel`函数指针，加载内核启动运行，这样，便进行内核的启动运行了。	

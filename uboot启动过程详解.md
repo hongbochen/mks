@@ -252,3 +252,4 @@ grammar_cjkRuby: true
 
 那么uboot又是如何验证内核镜像和ramdisk镜像的呢？我们接着看。
 
+我们先来看函数`secure_verify()`函数。

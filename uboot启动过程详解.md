@@ -235,15 +235,15 @@ grammar_cjkRuby: true
 接着我们回到`board.c`，程序接着运行，接着初始化misc，初始化中断，使能中断；同时在这里判断是否进去`fastboot`模式。接着，进入我们的重点，也就是安全启动验证阶段。
 
 ```
-#if defined(CONFIG_ENABLE_SECURE_VERIFY_FOR_BOOT)
-        extern  int secure_verify(void);
-        extern void pmic_power_off(void);
-        if(secure_verify()) {
-                printf("Secure verify failed! Shutdown now!\n");
-                pmic_power_off();
-        } else {
-                printf("Secure verify succeed!\n");
-        }
-#endif
+	#if defined(CONFIG_ENABLE_SECURE_VERIFY_FOR_BOOT)
+			extern  int secure_verify(void);
+			extern void pmic_power_off(void);
+			if(secure_verify()) {
+					printf("Secure verify failed! Shutdown now!\n");
+					pmic_power_off();
+			} else {
+					printf("Secure verify succeed!\n");
+			}
+	#endif
 
 ```

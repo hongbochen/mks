@@ -256,23 +256,23 @@ grammar_cjkRuby: true
 
 ```
 
-int secure_verify(void)
-{
-        getverifyimage(VERIFY_KERNEL);
-        if (image_rsa_verify()) {
-                printf("kernel verify failed!\n");
-                return 1;
-        } else {
-                printf("kernel verify ok!\n");
-                getverifyimage(VERIFY_RAMDISK);
-                if(image_rsa_verify()) {
-                        printf("ramdisk verify failed!\n");
-                        return 1;
-                } else {
-                        printf("ramdisk verify ok!\n");
-                }
-        }
-        return 0;
-}
+	int secure_verify(void)
+	{
+			getverifyimage(VERIFY_KERNEL);
+			if (image_rsa_verify()) {
+					printf("kernel verify failed!\n");
+					return 1;
+			} else {
+					printf("kernel verify ok!\n");
+					getverifyimage(VERIFY_RAMDISK);
+					if(image_rsa_verify()) {
+							printf("ramdisk verify failed!\n");
+							return 1;
+					} else {
+							printf("ramdisk verify ok!\n");
+					}
+			}
+			return 0;
+	}
 
 ```

@@ -329,3 +329,47 @@ grammar_cjkRuby: true
   首先我们需要了解的是，我们刷入的内核镜像并不是可运行的内核镜像，因为我们在真正的内核镜像之前加入了一个小小的1.5K的头，该头里面包含了内核的大小，经过私钥对内核签名后的签名，以及需要使用的公钥生成的一些属性。所以在该获取镜像的函数中，我们获取了所有的内核镜像数据，内核镜像大小，签名数据以及公钥属性数据。
   
   下面我们就需要对其进行rsa验证。
+  
+  ```
+  
+	  /******************************************************
+					Let image to do RSA verify. If verify OK,
+					return 0. Otherwise, return 1.
+	*******************************************************/
+	int image_rsa_verify(void)
+	{
+					unsigned int value, i;
+					unsigned char *image_sha256;
+					unsigned char *signature;
+					RSAPublicKey *public_key;
+					SHA256_CTX ctx;
+
+					updateNum = 0;
+					value = rsaPubKey_sha256_verify();
+					if(value == 1)
+							return 1;
+
+					updateNum = 0;
+					image_sha256 = (unsigned char*)SHA256_hash(ORIGIN_IMAGE_BASEADDR, ORIGIN_IMAGE_LEN, image_sha256, &ctx);
+
+	#if defined(CONFIG_ENABLE_SECURE_VERIFY_DEBUG)
+					dumphex("current image hash", uboot_sha256, 32);
+	#endif
+
+					for(i=0; i<32; i++)
+							ORIGIN_IMAGE_SHA[i] = image_sha256[i];
+
+					updateNum = 0;
+					signature = (unsigned char*)RSASIGNATURE;
+					public_key = (RSAPublicKey *)RSAPUBKEYSTRU;
+					value = RSA_verify(public_key, signature, 256, ORIGIN_IMAGE_SHA, 32);
+
+					if(value == 0)
+							return 1;
+					return 0;
+	}
+
+  
+  ```
+  
+  

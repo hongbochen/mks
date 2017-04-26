@@ -54,4 +54,10 @@ $ sudo apt-get install \
   
   ，选择我们的ubuntu版本，浏览`pool/stable`，选择`amd64`或者是`armhf`，然后下载相应你想要安装的的`.deb`文件。
   
+  下载完成之后，使用下面的命令来安装你所下载的安装包。
   
+```
+
+dpkg -i /path/to/package.deb
+
+```

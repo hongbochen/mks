@@ -61,3 +61,24 @@ $ sudo apt-get install \
 dpkg -i /path/to/package.deb
 
 ```
+
+安装完成之后，我们通过运行`hello-world`镜像来验证Docker CE是否安装完成。
+
+### 卸载Docker
+
+我们可以使用下面的命令来卸载Docker包。
+
+```
+
+sudo apt-get purge docker-ce
+
+```
+
+但是镜像，容器，卷或者是定制的配置文件将不会自动被删除，我们可以通过下面的命令来移走：
+
+```
+
+sudo rm -rf /var/lib/docker
+
+```
+

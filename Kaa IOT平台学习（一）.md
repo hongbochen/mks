@@ -21,3 +21,9 @@ Kaa可以管理你的设备的能力有：
  8. 收集和分析传感器数据
  9. 分析用户行为，发送目标提醒
 
+### Kaa如何工作
+
+Kaa为连接的对象使能数据管理，并且通过提供服务器和末端SDK组件来使能你的后端基础建设。SDKs被嵌入到你连接的设备上并且实现与服务器的实时双流向的数据交换。Kaa SDKs能被集成在虚拟的任何连接的设备或芯片上。
+
+Kaa enables data management for connected objects and your back-end infrastructure by providing the server and endpoint SDK components. The SDKs get embedded into your connected device and implement real-time bi-directional data exchange with the server. Kaa SDKs are capable of being integrated with virtually any type of connected device or microchip.
+

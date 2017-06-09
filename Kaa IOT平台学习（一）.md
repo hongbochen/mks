@@ -25,5 +25,9 @@ Kaa可以管理你的设备的能力有：
 
 Kaa为连接的对象使能数据管理，并且通过提供服务器和末端SDK组件来使能你的后端基础建设。SDKs被嵌入到你连接的设备上并且实现与服务器的实时双流向的数据交换。Kaa SDKs能被集成在虚拟的任何连接的设备或芯片上。
 
+Kaa服务器提供了所有的后端功能，这些功能需要操作甚至是大规模和关键任务的IoT解决方案。他处理所有通过连接对象的交流，包括数据一致性和安全性，设备协同工作能力和失败证明连接性。
 
+Kaa服务器特征非常好的被构建了接口用于数据管理和分析系统和你的产品专属服务的集成。他为你的后端系统扮演一个功能，便是你可以非常简便的扩展和定制来满足你的产品的特殊的需求。
+
+The Kaa server features well-established interfaces for integration with data management and analytics systems, as well as with your product-specific services. It acts as a foundation for your back-end system that you are free to expand and customize to meet the specific requirements of your product.
 

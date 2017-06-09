@@ -29,5 +29,4 @@ Kaa服务器提供了所有的后端功能，这些功能需要操作甚至是�
 
 Kaa服务器特征非常好的被构建了接口用于数据管理和分析系统和你的产品专属服务的集成。他为你的后端系统扮演一个功能，便是你可以非常简便的扩展和定制来满足你的产品的特殊的需求。
 
-The Kaa server features well-established interfaces for integration with data management and analytics systems, as well as with your product-specific services. It acts as a foundation for your back-end system that you are free to expand and customize to meet the specific requirements of your product.
 

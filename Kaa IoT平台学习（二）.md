@@ -15,3 +15,4 @@ Kaa IoT平台由Kaa server，Kaa扩展和端点SDKs组成。
 
 Kaa服务器节点使用Apache的ZooKeeper来与服务合作。互相连接的节点和特别的Kaa实例组成了一个Kaa集群。Kaa集群需要Nosql和SQL数据库实例来保存端点数据和原语。
 
+

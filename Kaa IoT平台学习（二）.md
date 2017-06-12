@@ -32,6 +32,6 @@ Kaa控制服务管理所有的系统数据，处理来自Web UI和外部集成�
 
 操作服务最基础的角色就是与当前多个端点进行通信。操作服务处理端点请求并且把数据发送给他们。
 
-The primary role of the Operations service is to communicate with multiple endpoints concurrently. Operations services process the endpoint requests and sends data to them.
+为了横向扩展，你可以设置一个Kaa集群的每一个几点都是操作服务使能的。在这个情况下，所有的操作服务的实例当前都是在运行的。。
 
 For the purpose of horizontal scaling, you can set up a Kaa cluster with Operations service enabled for every node. In this case, all instances of Operations service will function concurrently. In case of an Operations service outage, previously connected endpoints switch to other available Operations services automatically. Kaa server can re-balance the load at run time, thus effectively routing endpoints to the less loaded nodes in the cluster.

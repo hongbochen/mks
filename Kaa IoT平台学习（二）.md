@@ -63,6 +63,6 @@ Kaa服务使用Apache Thirft来进行进程和节点之间的通信。每一个�
 
 ### 高可用性和伸缩性
 
-Kaa集群可以横向和线性扩展；在Kaa集群架构中没有单一故障点。
+Kaa集群可以横向和线性扩展；在Kaa集群架构中没有单一故障点。Kaa操作和Bootstrap服务是独一无二的并且工作在主动-主动的HA模式下。
 
 Kaa cluster scales horizontally and linearly; there is no single point of failure in Kaa cluster architecture. Kaa Operations and Bootstrap services are identical and function in active-active HA mode. One of the cluster nodes contains an active Control service. In case that node fails, a standby Control service in another node is promoted to become active. High availability of Kaa Cluster also depends on HA of SQL and NoSQL databases.

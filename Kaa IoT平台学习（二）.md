@@ -60,3 +60,7 @@ NoSQL数据库节点可以和Kaa节点一样放在相同的为或虚拟机上，
 #### Internode communications
 
 Kaa服务使用Apache Thirft来进行进程和节点之间的通信。每一个服务使用ZooKeeper包含关于他的兄弟的元数据。这个元数据包含关于Thrift主机和端口的信息。
+
+### 高可用性和伸缩性
+
+Kaa cluster scales horizontally and linearly; there is no single point of failure in Kaa cluster architecture. Kaa Operations and Bootstrap services are identical and function in active-active HA mode. One of the cluster nodes contains an active Control service. In case that node fails, a standby Control service in another node is promoted to become active. High availability of Kaa Cluster also depends on HA of SQL and NoSQL databases.

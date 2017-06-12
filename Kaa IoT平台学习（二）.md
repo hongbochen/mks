@@ -58,4 +58,6 @@ NoSql数据库实例被用于存储端点关系数据，这些数据随着端点
 NoSQL数据库节点可以和Kaa节点一样放在相同的为或虚拟机上，并且为了这个系统的高可用性，他应该在HA模式下被部署。Kaa官方支持Apache Cassandra和MongoDB作为嵌入的NoSQL数据库。
 
 #### Internode communications
+
+Kaa服务
 Kaa services use Apache Thirft to communicate across processes and nodes. Each service obtains metadata about its siblings using Apache ZooKeeper. This metadata contains information about the Thrift host and port.

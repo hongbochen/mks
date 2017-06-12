@@ -47,7 +47,6 @@ Apache ZooKeeper使能在Kaa集群节点之间高可靠性分布式合作。每�
 #### SQL database
 
 SQL数据库实例被用于存储租户，应用，端点组合其他原语，他们不随着端点的增加而增长。
-SQL database instance is used to store tenants, applications, endpoint groups and other metadata that does not grow as the number of endpoints increases.
 
 High availability of a Kaa cluster is achieved by deploying the SQL database in HA mode. Kaa officially supports MariaDB and PostgreSQL as the embedded SQL databases at the moment.
 

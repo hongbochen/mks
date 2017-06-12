@@ -44,7 +44,7 @@ Kaa Bootstrap服务发送关于操作服务连接参数的信息到端点中。�
 
 Apache ZooKeeper使能在Kaa集群节点之间高可靠性分布式合作。每一个Kaa节点持续的推送关于连接参数，使能的服务和回应的服务负载的信息，其他Kaa节点使用这个信息去获取他们兄弟的列表并且与他们进行通信。活动的控制服务在SDK生成期间使用关于可用Bootstrap服务和他们连接参数的信息。
 
-SQL database
+#### SQL database
 
 SQL database instance is used to store tenants, applications, endpoint groups and other metadata that does not grow as the number of endpoints increases.
 

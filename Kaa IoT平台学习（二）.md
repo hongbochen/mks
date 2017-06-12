@@ -48,6 +48,8 @@ Apache ZooKeeper使能在Kaa集群节点之间高可靠性分布式合作。每�
 
 SQL数据库实例被用于存储租户，应用，端点组合其他原语，他们不随着端点的增加而增长。
 
+
+一个Kaa集群的高可用性通过在HA模式下部署SQL数据库被实现了。
 High availability of a Kaa cluster is achieved by deploying the SQL database in HA mode. Kaa officially supports MariaDB and PostgreSQL as the embedded SQL databases at the moment.
 
 NoSQL database

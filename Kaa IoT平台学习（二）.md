@@ -27,5 +27,3 @@ Kaa服务器节点使用Apache的ZooKeeper来与服务合作。互相连接的�
 Kaa控制服务管理所有的系统数据，处理来自Web UI和外部集成系统的API请求，并且向Operaion服务发送通知。控制服务通过持续的接收来自ZooKeeper的信息来维持一个最新的可操作服务列表。除此之外，控制服务运行嵌入的使用控制服务API的管理web UI组件，来想用户提供方便的基于web的接口来管理租户，用户账户，应用数据等。
 
 为了支持高可用性，一个Kaa集群至少有两个节点是使能控制服务的。在高可用性模式中，其中的一个控制服务是活动的，另外一个是待机模式。一旦活动的控制服务失效了，ZooKeeper会唤醒其中一个待机控制服务并且将它升级成为活动控制服务。
-
-To support high availability (HA), a Kaa cluster must include at least two nodes with Control service enabled. In HA mode, one of the Control services acts as active and the other(s) function in standby mode. In case of the active Control service failure, ZooKeeper notifies one of the standby Control service and promotes it to the active Control service.

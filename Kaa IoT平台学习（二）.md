@@ -59,5 +59,5 @@ NoSQL数据库节点可以和Kaa节点一样放在相同的为或虚拟机上，
 
 #### Internode communications
 
-Kaa服务使用Apache Thirft来进行进程和节点之间的通信。
+Kaa服务使用Apache Thirft来进行进程和节点之间的通信。每一个服务使用ZooKeeper包含关于他的兄弟的元数据。
 Kaa services use Apache Thirft to communicate across processes and nodes. Each service obtains metadata about its siblings using Apache ZooKeeper. This metadata contains information about the Thrift host and port.

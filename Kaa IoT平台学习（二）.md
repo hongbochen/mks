@@ -22,3 +22,5 @@ Kaa服务器节点使用Apache的ZooKeeper来与服务合作。互相连接的�
   
  位于集群中的Kaa节点运行了Control,Operation和Bootstrap服务的组合。
 
+#### Control服务
+

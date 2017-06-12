@@ -33,3 +33,9 @@ Kaa控制服务管理所有的系统数据，处理来自Web UI和外部集成�
 操作服务最基础的角色就是与当前多个端点进行通信。操作服务处理端点请求并且把数据发送给他们。
 
 为了横向扩展，你可以设置一个Kaa集群的每一个几点都是操作服务使能的。在这个情况下，所有的操作服务的实例当前都是在运行的。如果一个操作服务意外终止了，之前连接端点自动转换到其他可用的操作服务中去。Kaa服务器在运行时可以重新负载均衡，所以在集群中路由端点到低负载的节点中的效率是非常高的。
+
+#### 引导程序服务
+
+Kaa Bootstrap服务发送关于操作服务连接参数的信息到端点中。取决于配置的协议栈，连接参数可能包括IP地址，TCP端口，安全证书等。Kaa SDK包含一个在集群中预生成的Bootstrao可用列表，他被用于生成SDK库。
+
+Kaa Bootstrap service sends the information to the endpoints about Operations services connection parameters. Depending on the configured protocol stack, connection parameters may include IP address, TCP port, security credentials, etc. Kaa SDKs contain a pre-generated list of Bootstrap services available in the Kaa cluster that was used to generate the SDK library. Endpoints query Bootstrap services from this list to retrieve connection parameters for the currently available Operations services. Bootstrap services maintain their lists of available Operations services by coordinating with ZooKeeper.

@@ -11,4 +11,8 @@ Kaa IoT平台由Kaa server，Kaa扩展和端点SDKs组成。
  - kaa扩展是独立的软件模块，他提升了平台的功能性。
  - 端点SDK是为多种多样的Kaa平台特征提供客户端的API并且处理通信，数据编集，持久性等的一个库。Kaa SDK被设计区促进客户端应用的创造性来运行在各种各样连接的设备上。然而，不使用Kaa端点SDK的客户端应用也是有可能的。以不同的编程语言有多种不同的端点SDK。
 
+### Kaa集群
 
+Kaa服务器节点使用Apache的ZooKeeper来与服务合作。
+
+Kaa server nodes use Apache ZooKeeper to coordinate services. Interconnected nodes make up a Kaa cluster associated with a particular Kaa instance. Kaa cluster requires NoSQL and SQL database instances to store endpoint data and metadata, accordingly.

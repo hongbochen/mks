@@ -36,6 +36,6 @@ Kaa控制服务管理所有的系统数据，处理来自Web UI和外部集成�
 
 #### 引导程序服务
 
-Kaa Bootstrap服务发送关于操作服务连接参数的信息到端点中。取决于配置的协议栈，连接参数可能包括IP地址，TCP端口，安全证书等。Kaa SDK包含一个在集群中预生成的Bootstrao可用列表，他被用于生成SDK库。在这个列表中的端点查询Bootstrap服务为当前可用操作服务取回连接。
+Kaa Bootstrap服务发送关于操作服务连接参数的信息到端点中。取决于配置的协议栈，连接参数可能包括IP地址，TCP端口，安全证书等。Kaa SDK包含一个在集群中预生成的Bootstrao可用列表，他被用于生成SDK库。在这个列表中的端点查询Bootstrap服务为当前可用操作服务取回连接。Bootstrap服务通过和ZooKeeper服务合作来维持他们的可用操作服务的列表。
 
 Kaa Bootstrap service sends the information to the endpoints about Operations services connection parameters. Depending on the configured protocol stack, connection parameters may include IP address, TCP port, security credentials, etc. Kaa SDKs contain a pre-generated list of Bootstrap services available in the Kaa cluster that was used to generate the SDK library. Endpoints query Bootstrap services from this list to retrieve connection parameters for the currently available Operations services. Bootstrap services maintain their lists of available Operations services by coordinating with ZooKeeper.

@@ -30,7 +30,7 @@ Kaa控制服务管理所有的系统数据，处理来自Web UI和外部集成�
 
 #### 操作服务
 
-操作服务最基础的角色就是与当前多个端点进行通信。
+操作服务最基础的角色就是与当前多个端点进行通信。操作服务处理端点请求并且把数据发送给他们。
 
 The primary role of the Operations service is to communicate with multiple endpoints concurrently. Operations services process the endpoint requests and sends data to them.
 

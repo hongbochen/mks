@@ -42,7 +42,7 @@ Kaa Bootstrap服务发送关于操作服务连接参数的信息到端点中。�
 
 #### Zookeeper
 
-Apache ZooKeeper使能在Kaa集群节点之间高可靠性分布式合作。每一个Kaa节点持续的推送关于连接参数的信息。
+Apache ZooKeeper使能在Kaa集群节点之间高可靠性分布式合作。每一个Kaa节点持续的推送关于连接参数，使能的服务和回应的服务负载的信息，其他Kaa节点使用这个信息去获取他们兄弟的列表并且与他们进行通信。
 Apache ZooKeeper enables highly reliable distributed coordination of Kaa cluster nodes. Each Kaa node continuously pushes information about connection parameters, enabled services and the corresponding services load. Other Kaa nodes use this information to get the list of their siblings and communicate with them. Active Control service uses the information about available Bootstrap services and their connection parameters during the SDK generation.
 
 SQL database

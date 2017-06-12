@@ -53,6 +53,8 @@ SQL数据库实例被用于存储租户，应用，端点组合其他原语，�
 
 #### NoSQL database
 
+NoSql数据库实例被用于存储端点关系数据，这些数据随着端点的增加成线性增长。
+
 NoSQL database instance is used to store endpoint-related data that grows linearly as the number of endpoints increases.
 
 NoSQL database nodes can be co-located with Kaa nodes on the same physical or virtual machines, and should be deployed in HA mode for the overall high availability of the system. Kaa officially supports Apache Cassandra and MongoDB as the embedded NoSQL database at the moment.

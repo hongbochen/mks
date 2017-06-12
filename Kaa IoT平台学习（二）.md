@@ -24,7 +24,7 @@ Kaa服务器节点使用Apache的ZooKeeper来与服务合作。互相连接的�
 
 #### Control服务
 
-Kaa控制服务管理所有的系统数据，处理来自Web UI和外部集成系统的API请求，并且向Operaion服务发送通知。
+Kaa控制服务管理所有的系统数据，处理来自Web UI和外部集成系统的API请求，并且向Operaion服务发送通知。控制服务通过持续的接收来自ZooKeeper的信息来维持一个最新的可操作服务列表。除此之外，控制服务运行嵌入的使用控制服务API的管理web UI组件，来想用户提供方便的基于web的接口来管理租户，用户账户，应用数据等。
 
 Kaa Control service manages overall system data, processes API calls from the web UI and external integrated systems, and sends notifications to Operations services. Control service maintains an up-to-date list of available Operations services by continuously receiving this information from ZooKeeper. Additionally, Control service runs embedded Administrative web UI component that uses Control service APIs to provide platform users with a convenient web-based interface for managing tenants, user accounts, applications, application data, etc.
 

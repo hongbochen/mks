@@ -21,5 +21,4 @@ Kaa服务器节点使用Apache的ZooKeeper来与服务合作。互相连接的�
   [1]: ./images/high-level-architecture.png "high-level-architecture"
   
  位于集群中的Kaa节点运行了Control,Operation和Bootstrap服务的组合。
-  
-  Kaa nodes in a cluster run a combination of Control, Operations, and Bootstrap services.
+

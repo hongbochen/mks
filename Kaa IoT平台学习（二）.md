@@ -40,3 +40,18 @@ Kaa Bootstrap服务发送关于操作服务连接参数的信息到端点中。�
 
 ### 第三方组件
 
+#### Zookeeper
+
+Apache ZooKeeper enables highly reliable distributed coordination of Kaa cluster nodes. Each Kaa node continuously pushes information about connection parameters, enabled services and the corresponding services load. Other Kaa nodes use this information to get the list of their siblings and communicate with them. Active Control service uses the information about available Bootstrap services and their connection parameters during the SDK generation.
+
+SQL database
+
+SQL database instance is used to store tenants, applications, endpoint groups and other metadata that does not grow as the number of endpoints increases.
+
+High availability of a Kaa cluster is achieved by deploying the SQL database in HA mode. Kaa officially supports MariaDB and PostgreSQL as the embedded SQL databases at the moment.
+
+NoSQL database
+
+NoSQL database instance is used to store endpoint-related data that grows linearly as the number of endpoints increases.
+
+NoSQL database nodes can be co-located with Kaa nodes on the same physical or virtual machines, and should be deployed in HA mode for the overall high availability of the system. Kaa officially supports Apache Cassandra and MongoDB as the embedded NoSQL database at the moment.

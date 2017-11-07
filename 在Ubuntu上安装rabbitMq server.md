@@ -10,5 +10,4 @@ grammar_cjkRuby: true
 | ------------- |:-------------:| 
 | 基于debian的linux的安装包(github)      | right-aligned |
 | 基于debian的linux的安装包(Bintray)       | centered      |
-| zebra stripes | are neat      | 
 

@@ -8,7 +8,7 @@ grammar_cjkRuby: true
 
 | 描述        | 下载           | 
 | ------------- |:-------------:| 
-| col 3 is      | right-aligned |
+| 基于debian的linux的安装包(github)      | right-aligned |
 | col 2 is      | centered      |
 | zebra stripes | are neat      | 
 

@@ -9,6 +9,6 @@ grammar_cjkRuby: true
 | 描述        | 下载           | 
 | ------------- |:-------------:| 
 | 基于debian的linux的安装包(github)      | right-aligned |
-| col 2 is      | centered      |
+| 基于debian的linux的安装包(Bintray)       | centered      |
 | zebra stripes | are neat      | 
 

@@ -6,7 +6,7 @@ grammar_cjkRuby: true
 
 ### 下载Server
 
-| 秒数        | Are           | Cool  |
+| 描述        | 下载           | Cool  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |

@@ -23,7 +23,9 @@ Producing（生产）无非就是发送。发送消息的程序就是`producer�
 
 ![Queue][2]
 
-消费者(`Consumer`)
+消费者(`Consumer`)与接收有相似的意义。一个消费者是等待来接受消息的程序。
+
+
 
 
   [1]: https://raw.githubusercontent.com/hongbochen/mks/master/images/producer.png

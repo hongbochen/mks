@@ -18,5 +18,7 @@ Producing（生产）无非就是发送。发送消息的程序就是`producer�
 
 ![Producer][1]
 
+一个（queue）队列是位于RabbitMQ内部的邮箱的名称。虽然消息是从RabbitMQ到你的应用之间进行传递，但是他们只能被保存到一个队列中。
+
 
   [1]: https://raw.githubusercontent.com/hongbochen/mks/master/images/producer.png

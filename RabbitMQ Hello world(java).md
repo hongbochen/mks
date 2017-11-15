@@ -18,7 +18,7 @@ Producing（生产）无非就是发送。发送消息的程序就是`producer�
 
 ![Producer][1]
 
-一个（queue）队列是位于RabbitMQ内部的邮箱的名称。虽然消息是从RabbitMQ到你的应用之间进行传递，但是他们只能被保存到一个队列中。
+一个（queue）队列是位于RabbitMQ内部的邮箱的名称。虽然消息是从RabbitMQ到你的应用之间进行传递，但是他们只能被保存到一个队列中。一个队列只能被主机的内存和硬盘大小所限制，它本质上是一个大的消息缓冲区。很多生产者都可以发送消息到一个队列中，并且很多消费者可以尝试从一个队列中接收数据。下面是我们如何表示一个队列。
 
 
   [1]: https://raw.githubusercontent.com/hongbochen/mks/master/images/producer.png

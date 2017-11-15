@@ -36,7 +36,10 @@ Producing（生产）无非就是发送。发送消息的程序就是`producer�
 
 在下列图片中，"P"是我们的生产者，"C"是我们的消费者。位于中间的盒子是一个队列 - RabbitMQ维持的一个消息缓冲区。
 
+![生产者-队列-消费者][4]
+
 
   [1]: https://raw.githubusercontent.com/hongbochen/mks/master/images/producer.png
   [2]: https://raw.githubusercontent.com/hongbochen/mks/master/images/queue.png
   [3]: https://raw.githubusercontent.com/hongbochen/mks/master/images/consumer.png
+  [4]: https://raw.githubusercontent.com/hongbochen/mks/master/images/one.png

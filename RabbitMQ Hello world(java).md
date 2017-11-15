@@ -23,7 +23,7 @@ Producing（生产）无非就是发送。发送消息的程序就是`producer�
 
 ![Queue][2]
 
-
+消费者(`Consumer`)
 
 
   [1]: https://raw.githubusercontent.com/hongbochen/mks/master/images/producer.png

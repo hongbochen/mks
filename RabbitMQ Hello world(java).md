@@ -15,3 +15,8 @@ RabbitMQ是一个消息代理：它接收并且转发消息。你可以把他当
 RabbitMQ和消息，在大体上，使用一些术语。
 
 Producing（生产）无非就是发送。发送消息的程序就是`producer（生产者）`。
+
+![Producer][1]
+
+
+  [1]: https://raw.githubusercontent.com/hongbochen/mks/master/images/producer.png

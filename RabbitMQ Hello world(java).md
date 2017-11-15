@@ -32,6 +32,8 @@ Producing（生产）无非就是发送。发送消息的程序就是`producer�
 ### *“Hello World”*
 **(使用Java客户端)**
 
+在这一部分，我们将会使用Java写两个程序：一个发送单一消息的生产者，和一个接收消息并打印他们的消费者。
+
 
   [1]: https://raw.githubusercontent.com/hongbochen/mks/master/images/producer.png
   [2]: https://raw.githubusercontent.com/hongbochen/mks/master/images/queue.png

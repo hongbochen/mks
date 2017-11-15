@@ -39,6 +39,7 @@ Producing（生产）无非就是发送。发送消息的程序就是`producer�
 ![生产者-队列-消费者][4]
 
 
+
   [1]: https://raw.githubusercontent.com/hongbochen/mks/master/images/producer.png
   [2]: https://raw.githubusercontent.com/hongbochen/mks/master/images/queue.png
   [3]: https://raw.githubusercontent.com/hongbochen/mks/master/images/consumer.png

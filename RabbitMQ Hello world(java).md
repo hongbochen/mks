@@ -19,6 +19,6 @@ Producing（生产）无非就是发送。发送消息的程序就是`producer�
 ![enter description here][1]
 
 
-  [1]: images/producer.png
+  [1]: https://github.com/hongbochen/mks/blob/master/images/producer.png
   
   

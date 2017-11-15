@@ -1,6 +1,6 @@
 ---
 title: RabbitMQ Hello world(java)
-tags: 新建,模板,小书匠
+tags: RabbitMQ, Producing, queue, Consuming
 grammar_cjkRuby: true
 ---
 

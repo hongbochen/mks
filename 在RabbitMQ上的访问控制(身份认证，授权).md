@@ -1,6 +1,6 @@
 ---
 title: 在RabbitMQ上的访问控制(身份认证，授权)
-tags: 新建,模板,小书匠
+tags: RabbitMQ, 访问控制, 身份认证, 授权
 grammar_cjkRuby: true
 ---
 

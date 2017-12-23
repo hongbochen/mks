@@ -137,8 +137,10 @@ fileMenu.addAction(exitAct)
 
 下面是该小例子的截图：
 
+![enter description here][2
 
 
 
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
+  [2]: https://github.com/hongbochen/mks/blob/master/images/simplemenu.png?raw=true

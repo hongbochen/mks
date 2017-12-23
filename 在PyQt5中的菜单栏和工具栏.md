@@ -263,6 +263,14 @@ if __name__ == "__main__":
 
 这个代码例子创建了带有一个行为的视图菜单。这个行为显示或者是隐藏状态栏。当状态栏可视的时候，菜单选项被选中。
 
+```
+
+viewStatAct = QAction('View statusbar', self, checkable=True)
+
+```
+
+使用`checkable`选项，我们创建了一个可选择菜单。、
+
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true

@@ -57,7 +57,7 @@ grammar_cjkRuby: true
 
 ### 简单的菜单
 
-
+菜单栏是GUI应用程序的通用组件。他是一组位于多个菜单的命令。（Mac OS以不同的方式对待菜单栏。为了获得相似的输出，我们可以添加下列一行:`menubar.setNativeMenubar(False)`）
 
 
 

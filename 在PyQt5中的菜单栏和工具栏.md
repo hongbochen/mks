@@ -348,6 +348,13 @@ action = cmenu.exec_(self.mapTpGlobal(event.pos()))
 
 该上下文菜单被`exec_()`方法显示。他们从事件对象中获得鼠标指针的坐标。`mapToGlobal()`方法传递组件的坐标到全局的屏幕坐标。
 
+```
+
+if action == quitAct:
+	qApp.quit()
+
+```
+
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true
   [3]: https://github.com/hongbochen/mks/blob/master/images/checkmenu.png?raw=true

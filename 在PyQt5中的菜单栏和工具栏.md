@@ -289,6 +289,10 @@ def toggleMenu(self, state):
 
 ```
 
+依赖于行为选中的状态，我们设置状态栏是否显示。
+
+
+
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true

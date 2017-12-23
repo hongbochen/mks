@@ -115,7 +115,7 @@ exitAct.setStatusTip("Exit application")
 
 ```
 
-`QAction`是一个运行在菜单栏，工具栏和定制键盘快捷键的抽象类。在上面三行中，我们使用特定的图标和一个'Exit'标签创建了一个行为。进一步说，一个快捷键为了这个行为被定义。
+`QAction`是一个运行在菜单栏，工具栏和定制键盘快捷键的抽象类。在上面三行中，我们使用特定的图标和一个'Exit'标签创建了一个行为。进一步说，一个快捷键为了这个行为被定义。第三行创建了一个状态提示，当鼠标经过该菜单选项的时候，被显示在状态栏上。
 
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true

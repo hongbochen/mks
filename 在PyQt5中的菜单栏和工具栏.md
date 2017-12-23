@@ -203,6 +203,7 @@ impMenu.addAction(impAct)
 
 ```
 
+一个行为通过使用`addAction()`被添加到子菜单中。
 
 
 

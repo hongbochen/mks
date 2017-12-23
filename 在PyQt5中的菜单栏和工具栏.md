@@ -426,6 +426,57 @@ if __name__ == '__main__':
 
 在最后一个例子中，我们将会创建一个菜单栏，工具栏和一个状态栏。我们也将会创建一个中心的组件。
 
+```
+
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+
+import sys
+from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction,QApplication
+from PyQt5.QtGui import QIcon
+
+class Example(QMainWindow):
+    
+    def __init__(self):
+        super().__init__()
+        
+        self.initUI()
+        
+    def initUI(self):
+        
+        textEdit = QTextEdit()
+        self.setCentralWidget(textEdit)
+        
+        exitAct = QAction(QIcon("exit.png"),"Exit",self)
+        exitAct.setShortcut("Ctrl+Q")
+        exitAct.setStatusTip("Exit application")
+        exitAct.triggered.connect(self.close)
+        
+        self.statusBar()
+        
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu("&File")
+        fileMenu.addAction(exitAct)
+        
+        toolbar = self.addToolBar("Exit")
+        toolbar.addAction(exitAct)
+        
+        self.setGeometry(300,300,350,250)
+        self.setWindowTitle("Main Window")
+        self.show()
+        
+if __name__ == "__main__":
+    
+    app = QApplication(sys.argv)
+    
+    ex = Example()
+    
+    sys.exit(app.exec_())
+
+```
+
+在这里，我们创建了一个文本编辑组件。我们也把它设置成为`QMainWindow`的中心组件。中心组件被分为剩余空间的所有空间。
+
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true
   [3]: https://github.com/hongbochen/mks/blob/master/images/checkmenu.png?raw=true

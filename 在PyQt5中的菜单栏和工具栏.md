@@ -269,7 +269,15 @@ viewStatAct = QAction('View statusbar', self, checkable=True)
 
 ```
 
-使用`checkable`选项，我们创建了一个可选择菜单。、
+使用`checkable`选项，我们创建了一个可选择菜单。
+
+```
+
+viewStatAct.setChecked(True)
+
+```
+
+因为状态栏在一开始的时候是可视的，我们使用`setChecked()`方法来设置该行为。
 
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true

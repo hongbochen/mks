@@ -358,10 +358,9 @@ if action == quitAct:
 如果从上下文菜单返回的行为等于退出行为，则程序被终止。
 
 
-
 ### 工具栏
 
-
+在一个应用程序中，菜单栏组织了所有的命令。工具栏提供了常用命令的快速访问途径。
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true

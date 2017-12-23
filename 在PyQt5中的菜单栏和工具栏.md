@@ -283,9 +283,9 @@ viewStatAct.setChecked(True)
 
 def toggleMenu(self, state):
 	if state:
-		self.statusbar.setChecked(True)
+		self.statusbar.show()
 	else:
-		self.statusbar.setChecked(False)
+		self.statusbar.hide()
 
 ```
 

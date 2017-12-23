@@ -188,6 +188,21 @@ if __name__ == '__main__':
 
 在这个例子中，我们有两个菜单选项；一个位于文件菜单中，另一个位于文件的Import子菜单中。
 
+```
+
+impMenu = QMenu("Import", self)
+
+```
+
+新的菜单使用`QMenu`创建。
+
+```
+
+impAct = QAction("Import mail", self)
+impMenu.addAction(impAct)
+
+```
+
 
 
 

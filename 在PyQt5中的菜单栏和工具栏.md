@@ -47,4 +47,11 @@ grammar_cjkRuby: true
 
 状态栏在`QMainWindow`组件的帮助下被创建。
 
+```
+
+self.statusBar().showMessage("Ready")
+
+```
+
+
 

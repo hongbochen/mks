@@ -49,7 +49,7 @@ grammar_cjkRuby: true
 
 ```
 
-self.statusBar().showMessage("Ready")
+	self.statusBar().showMessage("Ready")
 
 ```
 

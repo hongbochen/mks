@@ -141,6 +141,7 @@ fileMenu.addAction(exitAct)
 
 ### 子菜单
 
+一个子菜单是位于另外一个菜单中的一个菜单。
 
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true

@@ -422,6 +422,10 @@ if __name__ == '__main__':
 
 工具栏被`addToolBar()`被创建。我们使用`addAction()`方法添加一个行为对象到工具栏中。
 
+### 把他们放到一起
+
+在最后一个例子中，我们将会创建一个菜单栏，工具栏和一个状态栏。我们也将会创建一个中心的组件。
+
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true
   [3]: https://github.com/hongbochen/mks/blob/master/images/checkmenu.png?raw=true

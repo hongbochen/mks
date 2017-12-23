@@ -12,4 +12,6 @@ grammar_cjkRuby: true
 
 ### Statusbar(状态栏)
 
+一个状态栏是用于显示状态信息的一个组件。
+
 

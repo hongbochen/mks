@@ -297,6 +297,56 @@ def toggleMenu(self, state):
 
 一个上下文菜单，也被称作弹出菜单，一个出现在一些上下文中的一个命令列表。例如，在一个Opera网页浏览器中，当你在一个网页中右击的时候，我们获得一个上下文菜单。在这里我们可以重新加载一个页面，回退，或者是查看页面源码。如果我们右击一个工具栏，我们将会得到管理工具栏的另一个上下文菜单。
 
+```
+
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+
+import sys
+from PyQt5.QtWidgets import QMainWindow, qApp,QMenu,QApplication
+
+class Example(QMainWindow):
+    
+    def __init__(self):
+        super().__init__()
+        
+        self.initUI()
+        
+    def initUI(self):
+        self.setGeometry(300,300,300,200)
+        self.setWindowTitle("Context menu")
+        
+        self.show()
+        
+    def contextMenuEvent(self,event):
+        cmenu = QMenu(self)
+        
+        newAct = cmenu.addAction("New")
+        opnAct = cmenu.addAction("Open")
+        quitAct = cmenu.addAction("Quit")
+        action = cmenu.exec_(self.mapToGlobal(event.pos()))
+        
+        if action == quitAct:
+            qApp.quit()
+            
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    
+    ex = Example()
+    
+    sys.exit(app.exec_())
+
+```
+
+为了能够使用上下文菜单，我们必须重新集成`contextMenuEvent()`方法。
+
+```
+
+action = cmenu.exec_(self.mapTpGlobal(event.pos()))
+
+```
+
+该上下文菜单被`exec_()`方法显示。他们从事件对象中获得鼠标指针的坐标。`mapToGlobal()`方法传递组件的坐标到全局的屏幕坐标。
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true

@@ -133,6 +133,8 @@ fileMenu.addAction(exitAct)
 
 ```
 
-`menuBar()`方法创建了一个菜单栏。我们使用`addMenu()`创建了一个文件按钮，并且使用`addAction()`方法添加一个行为、
+`menuBar()`方法创建了一个菜单栏。我们使用`addMenu()`创建了一个文件按钮，并且使用`addAction()`方法添加一个行为。
+
+
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true

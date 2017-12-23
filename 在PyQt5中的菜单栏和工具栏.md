@@ -362,6 +362,47 @@ if action == quitAct:
 
 在一个应用程序中，菜单栏组织了所有的命令。工具栏提供了常用命令的快速访问途径。
 
+```
+
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+
+import sys
+from PyQt5.QtWidgets import QMainWindow, QAction, qApp,QApplication
+from PyQt5.QtGui import QIcon
+
+class Example(QMainWindow):
+    
+    def __init__(self):
+        super().__init__()
+        
+        self.initUI()
+        
+    def initUI(self):
+        
+        exitAct = QAction(QIcon("exit.png"),"Exit",self)
+        exitAct.setShortcut("Ctrl+Q")
+        exitAct.triggered.connect(qApp.quit)
+        
+        self.toolbar = self.addToolBar("Exit")
+        self.toolbar.addAction(exitAct)
+        
+        self.setGeometry(300,300,300,200)
+        self.setWindowTitle("Toolbar")
+        self.show()
+        
+    
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    
+    ex = Example()
+    
+    sys.exit(app.exec_())
+
+```
+
+在上面的例子中，我们创建了一个简单的工具栏。工具栏有一个工具行为，一个退出行为。
+
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true
   [3]: https://github.com/hongbochen/mks/blob/master/images/checkmenu.png?raw=true

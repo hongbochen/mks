@@ -355,6 +355,8 @@ if action == quitAct:
 
 ```
 
+如果从上下文菜单返回的行为等于退出行为，则程序被终止。
+
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true
   [3]: https://github.com/hongbochen/mks/blob/master/images/checkmenu.png?raw=true

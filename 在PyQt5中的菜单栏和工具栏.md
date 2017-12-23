@@ -11,3 +11,5 @@ grammar_cjkRuby: true
 `QMainWindow`类提供了一个主应用窗口。这允许我们创建一个带有状态栏，工具栏和菜单栏的经典程序框架。
 
 #### Statusbar(状态栏)
+
+

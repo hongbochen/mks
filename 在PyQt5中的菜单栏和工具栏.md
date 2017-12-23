@@ -295,6 +295,8 @@ def toggleMenu(self, state):
 
 ### 上下文菜单
 
+一个上下文菜单，也被称作弹出菜单，一个出现在一些上下文中的一个命令列表。
+
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true

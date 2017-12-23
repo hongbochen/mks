@@ -403,6 +403,16 @@ if __name__ == '__main__':
 
 在上面的例子中，我们创建了一个简单的工具栏。工具栏有一个工具行为，一个退出行为，当触发的时候终止程序。
 
+```
+
+	    exitAct = QAction(QIcon("exit.png"),"Exit",self)
+        exitAct.setShortcut("Ctrl+Q")
+        exitAct.triggered.connect(qApp.quit)
+
+```
+
+和上面例子中的菜单栏一样，我们创建了一个行为对象。该对象有一个标签，图标和一个快捷方式。`Qt.QMainWindow`中的一个`quit()`方法被连接到触发信号中。
+
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true
   [3]: https://github.com/hongbochen/mks/blob/master/images/checkmenu.png?raw=true

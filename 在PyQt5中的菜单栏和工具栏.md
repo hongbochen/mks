@@ -211,6 +211,58 @@ impMenu.addAction(impAct)
 
 在下面的例子中，我们创建了一个按钮可以被选中或者是不被选中。
 
+```
+
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+
+import sys
+from PyQt5.QtWidgets import QMainWindow,QApplication,QAction
+
+class Example(QMainWindow):
+    
+    def __init__(self):
+        super().__init__()
+        
+        self.initUI()
+        
+    def initUI(self):
+        
+        self.statusbar = self.statusBar()
+        self.statusbar.showMessage("Ready")
+        
+        menubar = self.menuBar()
+        viewMenu = menubar.addMenu("View")
+        
+        viewStatAct = QAction("View statusbar",self,checkable=True)
+        viewStatAct.setStatusTip("View statusbar")
+        viewStatAct.setChecked(True)
+        viewStatAct.triggered.connect(self.toggleMenu)
+        
+        viewMenu.addAction(viewStatAct)
+        
+        self.setGeometry(300,300,300,200)
+        self.setWindowTitle("Check menu")
+        self.show()
+        
+    def toggleMenu(self,state):
+        if state:
+            self.statusbar.show()
+        else:
+            self.statusbar.hide()
+            
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    
+    ex = Example()
+    
+    sys.exit(app.exec_())
+
+```
+
+这个代码例子创建了带有一个行为的视图菜单。这个行为显示或者是隐藏状态栏。
+
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true

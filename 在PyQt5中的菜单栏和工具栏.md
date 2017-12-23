@@ -56,7 +56,7 @@ grammar_cjkRuby: true
 为了获取状态栏，我们调用类`QtGui.QMainWindow`的`statusBar()`方法。该方法的第一个调用创建一个状态栏。子序列调用返回状态栏对象。`showMessage()`展示在状态栏上的信息。
 
 下面是这个小例子程序的运行结果：
-
+![enter description here][1]
 
 
 ### 简单的菜单
@@ -105,7 +105,7 @@ if __name__ == '__main__':
 
 ```
 
-在上面的例子程序中，
+在上面的例子程序中，我们创建了一个带有一个菜单的菜单栏。这个菜单包含一个动作，如果选中的话，将会终止该应用程序。
 
 
-
+  [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true

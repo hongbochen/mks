@@ -107,5 +107,13 @@ if __name__ == '__main__':
 
 在上面的例子程序中，我们创建了一个带有一个菜单的菜单栏。这个菜单包含一个动作，如果选中的话，将会终止该应用程序。当然，也创建了一个状态栏。这个动作也可以使用`Ctrl+Q`快捷键。
 
+```
+
+exitAct = QAction(QIcon("exit.png"),"&Exit",self)
+exitAct.setShortcut("Ctrl+Q")
+exitAct.setStatusTip("Exit application")
+
+```
+
 
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true

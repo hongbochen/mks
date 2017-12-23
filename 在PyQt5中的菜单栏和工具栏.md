@@ -477,6 +477,8 @@ if __name__ == "__main__":
 
 在这里，我们创建了一个文本编辑组件。我们也把它设置成为`QMainWindow`的中心组件。中心组件被分为剩余空间的所有空间。
 
+在这篇文章中，我们学习了菜单栏，工具栏和状态栏，还有一个主程序窗口。
+
   [1]: https://github.com/hongbochen/mks/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171224005701.png?raw=true
   [2]: https://github.com/hongbochen/mks/blob/master/images/submenu.png?raw=true
   [3]: https://github.com/hongbochen/mks/blob/master/images/checkmenu.png?raw=true
